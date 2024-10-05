@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="LINK NEWS">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/MfTQ3BNm/LINK-UNBLOCKER.png">
+    <link rel="shortcut icon" href="https://i.postimg.cc/MfTQ3BNm/LINK-UNBLOCKER.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="256x256" href="https://i.postimg.cc/MfTQ3BNm/LINK-UNBLOCKER.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://i.postimg.cc/MfTQ3BNm/LINK-UNBLOCKER.png">
+    <link rel="apple-touch-icon" sizes="32x32" href="https://i.postimg.cc/MfTQ3BNm/LINK-UNBLOCKER.png">
+    <link rel="apple-touch-icon" sizes="16x16" href='https://i.postimg.cc/MfTQ3BNm/LINK-UNBLOCKER.png' target='_blank'>
+    
+    <title>LINK NEWS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+        }
+        main {
+            padding: 20px;
+        }
+        article {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+        }
+        h2 {
+            color: #007BFF;
+        }
+        h2 a {
+            text-decoration: none;
+        }
+        h2 a:hover {
+            text-decoration: underline;
+        }
+        .date {
+            color: #999;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #f4f4f4;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .hidden {
+            display: none;
+        }
+        .related-links-container {
+    text-align: center;
+    margin: 10px 0;
+}
+
+#related-links {
+    display: none;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-top: 5px;
+}
+
+#related-links a {
+    color: #555;
+    text-decoration: none;
+    padding: 5px 0;
+    display: block;
+    transition: color 0.3s;
+}
+
+#related-links a:hover {
+    color: #007BFF;
+}
+
+.toggle-button {
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-button:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>LINK NEWS</h1>
+</header>
+
+<div class="related-links-container">
+    <button class="toggle-button" onclick="toggleLinks()">関連リンク</button>
+    <div id="related-links" style="display: none;">
+        <a href="https://sites.google.com/view/ver2link">公式サイト</a>
+        <a href="https://www.youtube.com/@linkunblock">公式YouTube</a>
+    </div>
+</div>
+
+<main id="main-content">
+    <div id="home">
+        <article>
+            <h2><a href="#" onclick="showArticle('article2')">TEST</a></h2>
+            <p class="date">2024/10/05</p>
+            <p>testです。</p>
+        </article>
+        <article>
+            <h2><a href="#" onclick="showArticle('article3')">LINK NEWSについて</a></h2>
+            <p class="date">2024/10/05</p>
+            <p>LINK NEWSについて開発理由など解説します。</p>
+        </article>
+    </div>
+
+    <div id="article2" class="hidden">
+        <h2>TEST</h2>
+        <p class="date">2024/10/05</p>
+        <p>testです。</p>
+        <button onclick="goBack()">戻る</button>
+    </div>
+
+    <div id="article3" class="hidden">
+        <h2>LINK NEWSについて</h2>
+        <p class="date">2024/10/05</p>
+        <p>ご覧いただきありがとうございます！LINK管理人TMです！</p>
+        <p>開発理由とつきましては、Google siteだとデザインの限界があったりと、使いにくいことが多々あるからです。</p>
+        <p>今回は実験としてNEWSのみ別サイトとして作らせていただきました！これからの応援もよろしくお願いします！</p>
+        <button onclick="goBack()">戻る</button>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2023 LINKNEWS</p>
+</footer>
+
+<script>
+    function showArticle(articleId) {
+        document.getElementById('home').classList.add('hidden');
+        document.getElementById(articleId).classList.remove('hidden');
+    }
+
+    function goBack() {
+        document.getElementById('home').classList.remove('hidden');
+        document.querySelectorAll('main > div:not(#home)').forEach(div => div.classList.add('hidden'));
+    }
+    function toggleLinks() {
+    const links = document.getElementById('related-links');
+    if (links.style.display === 'none' || links.style.display === '') {
+        links.style.display = 'block';
+    } else {
+        links.style.display = 'none';
+    }
+}
+</script>
+
+</body>
+</html>
